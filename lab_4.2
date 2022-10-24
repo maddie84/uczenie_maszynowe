@@ -1,0 +1,44 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Oct 23 22:21:47 2022
+
+@author: jazwi
+"""
+
+class Property:
+    def __init__(self, area, rooms: int, price, address):
+        self.area = area
+        self.rooms = rooms
+        self.price = price
+        self.address = address
+
+
+class House(Property):
+    def __init__(self, area, rooms: int, price, address, plot,
+                 rozmiar_dzialki: int):
+        super().__init__(area, rooms, price, address)
+        self.plot = plot
+        self.rozmiar_dzialki = rozmiar_dzialki
+
+    def __str__(self):
+        return f'House with area of {self.area} and {self.rooms} rooms, ' \
+               f'costs {self.price}, in {self.address},' \
+               f' plot {self.plot}, area {self.rozmiar_dzialki}'
+
+
+class Flat(Property):
+    def __init__(self, area, rooms: int, price, address, floor):
+        super().__init__(area, rooms, price, address)
+        self.floor = floor
+
+    def __str__(self):
+        return f'Flat with area of {self.area} and {self.rooms} rooms,' \
+               f' costs {self.price}, ' \
+               f'in {self.address}, on {self.floor} floor'
+
+
+house = House(9923, 7, 50000, 'katowice', 'stalowy', 19)
+flat = Flat(52, 1, 30000, 'sosnowiec', 3)
+
+print(house)
+print(flat)
